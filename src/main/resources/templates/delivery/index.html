@@ -28,6 +28,7 @@
     <style>
 .opcao {font-family:'Alegreya Sans', sans-serif;font-weight:300;margin:10px}
 
+
     </style>
 </head>
 
@@ -52,13 +53,13 @@
                 <legend>Delivery - Novo Pedido</legend>
                 <div class="form-group">
                     <label class="col-md-12" for="checkboxes">
-                        <img alt="" src="../img/hotdog.svg" style="width:50px; margin:-12px 0px;" />
+                        <img alt="" src="../img/hotdog.svg" style="width:50px; margin:-12px 0px;"/>
                         Cardápio
                     </label>
                 </div>
                 <div class="form-group">
                     <div class="col-md-12">
-                        <div  class="checkbox checkbox-primary" ng-repeat="i in itens">
+                        <div class="checkbox checkbox-primary" ng-repeat="i in itens">
                             <label for="checkboxes-0" class="opcao">
                                 <input name="checkboxes"
                                        class=" "
@@ -79,13 +80,14 @@
                 <div class="form-group">
                     <div class="col-md-12">
                         <button id="btnSubmit" name="btnSubmit" ng-click="fazerPedido(pedidoItens)"
-                                class="btn btn-primary">Fazer o pedido</button>
+                                class="btn btn-primary">Fazer o pedido
+                        </button>
                     </div>
                 </div>
             </fieldset>
         </form>
         <div class="alert alert-success" ng-show="idPedido!=null">
-            <strong>Pedido {{idPedido}}</strong>  {{mensagem}}
+            <strong>Pedido {{idPedido}}</strong> {{mensagem}}
         </div>
         <div class="alert alert-warning" ng-show="idPedido!=null">
             Valor do pedido: <strong>{{valorTotal}}</strong> reais.
@@ -94,6 +96,15 @@
             Chamada do serviço: <strong>{{urlPedido}}</strong>
         </div>
         <fieldset>{{message}}</fieldset>
+
+        <div class="alert alert-danger" ng-show="oferta!='nenhuma'">
+            <img th:src="@{/img/oferta.png}"/>{{oferta}}
+            <div ng-show="debug==1">
+                <br/>
+                <img th:src="@{/img/servidor.png}"/>
+                <strong>{{servidor}}</strong>
+            </div>
+        </div>
 
     </div>
 
